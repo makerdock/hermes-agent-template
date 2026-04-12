@@ -119,7 +119,7 @@ def read_env(path: Path) -> dict[str, str]:
 
 
 def write_config_yaml(data: dict[str, str]) -> None:
-    """Write a minimal config.yaml so hermes picks up the model and provider."""
+    """Write a minimal Hermes config using real upstream config keys."""
     model = data.get("LLM_MODEL", "")
     config_path = Path(HERMES_HOME) / "config.yaml"
     config_path.parent.mkdir(parents=True, exist_ok=True)
@@ -133,10 +133,15 @@ terminal:
   timeout: 60
   cwd: "/tmp"
 
-agent:
-  max_iterations: 50
+display:
+  tool_progress: "off"
 
-data_dir: "{HERMES_HOME}"
+approvals:
+  mode: "off"
+  timeout: 60
+
+agent:
+  max_turns: 90
 """)
 
 
