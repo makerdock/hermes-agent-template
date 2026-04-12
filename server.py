@@ -142,6 +142,8 @@ approvals:
 
 agent:
   max_turns: 90
+
+data_dir: "{HERMES_HOME}"
 """)
 
 
